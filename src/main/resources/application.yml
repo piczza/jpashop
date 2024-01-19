@@ -1,0 +1,25 @@
+#세팅!
+spring:
+  datasource:
+#    DB 접근! MVCC=TRUE를 넣어주면, 여러개가 한꺼번에 접근했을 때의 처리속도 빠름.
+    url: jdbc:h2:tcp://localhost/~/jpashop
+    username: sa
+    password:
+#    커넥션과 관련된 DB 설정 완료
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      #      자동으로 탭을 만들어주는 모드
+      ddl-auto: create
+    properties:
+      hibernate:
+#        얘네는 SQL을 sout으로 출력
+#        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+
+logging.level:
+#  얘네는 SQL을 로그로 출력
+  org.hibernate.SQL: debug
+  org.hibernate.orm.jdbc.bind: trace
